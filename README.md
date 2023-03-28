@@ -65,5 +65,5 @@ If the player wins, they gain 1 point. If the computer wins, the player loses on
 ## Deployed Link
 Deployed link: https://da-rpsmaster.netlify.app/
 
-##### Learn more
+## Learn more
 Not sure what Rock, Paper, Scissors, Lizard, Spock is? [Check out this clip from The Big Bang Theory](https://www.youtube.com/watch?v=iSHPVCBsnLw).
