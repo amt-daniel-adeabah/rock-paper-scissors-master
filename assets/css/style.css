@@ -40,6 +40,7 @@ body{
 .wrapper{
     width: var(--windowwidth);
     height: 100vh;
+    width: 100%;
     background-image: var(--Radial-Gradient);
     margin: 0 auto;
     padding: 1.5rem 0 3rem 0;
@@ -48,5 +49,520 @@ body{
     align-items: center;
 }
 
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(226, 7%, 61%); }
+.infoheader{
+    border: solid 3px var(--Header-Outline);
+    border-radius: 5px;
+    padding: 0.6rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 1.75rem 5rem 1.75rem;
+}
+
+.gamename{
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+    word-spacing: 100vw;
+    padding: 0.5rem;
+    line-height: 0.8;
+}
+
+.scorediv{
+    background-color: white;
+    border-radius: 5px;
+    color: var(--Score-Text);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.5rem 1.5rem 0.75rem 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.score{
+    color: var(--Dark-Text);
+    opacity: 90%;
+    font-size: 44px;
+    line-height: 30px;
+}
+
+.rulesBtn{
+    margin-top: 3rem;
+    width: auto;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 12px;
+    border-radius: 10px;
+    border: solid 2px var(--Header-Outline);
+    background-color: transparent;
+    color: white;
+    padding: 0.9rem 2.5rem 0.9rem 2.5rem;
+    position: fixed;
+    bottom: 50px;
+}
+.rulesBtn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.altGameBtn{
+    margin-top: 1rem;
+    width: auto;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 12px;
+    border-radius: 10px;
+    border: solid 2px var(--Header-Outline);
+    background-color: transparent;
+    color: white;
+    padding: 0.9rem 2.5rem 0.9rem 2.5rem;
+    position: relative;
+    background-image: linear-gradient(45deg, hsl(39, 89%, 49%), hsl(230, 89%, 62%), hsl(349, 71%, 52%), hsl(261, 73%, 60%), hsl(189, 59%, 53%));
+    z-index: 0;
+    visibility: hidden;
+}
+
+.game{
+    display: grid;
+    grid-template-areas: 
+    "a . b"
+    ". . ."
+    ". c .";
+    justify-items: center;
+    width: 100%;
+    padding: 3rem 0 0 0;
+}
+
+.altGame{
+    display: grid;
+    grid-template-areas: 
+    ". a ."
+    "e . b"
+    "d . c";
+    justify-items: center;
+    width: 100%;
+    padding: 3rem 0 0 0;
+    position: relative;
+}
+
+.triangle{
+    max-width: 100%;
+}
+
+.pentagon{
+    width: 220px;
+    position: absolute;
+    top: 0rem;
+    left: 75px;
+    padding: 3rem 0 0 0;
+}
+
+.paper, .rock, .scissors, .housePick{
+    background-color: white;
+    height: var(--buttonsize);
+    width: var(--buttonsize);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.altpaper, .altrock, .altscissors, .altlizard, .altspock{
+    background-color: white;
+    height: var(--altbuttonsize);
+    width: var(--altbuttonsize);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.paper img, .rock img, .scissors img{
+    width: var(--buttonimgsize);
+}
+
+.altpaper img, .altrock img, .altscissors img, .altlizard img, .altspock img{
+    width: var(--altbuttonimgsize);
+}
+
+.altpaper{
+    grid-area: b;
+    top: -2rem;
+    right: 1rem;
+    box-shadow: 
+    0 var(--altbuttonoverlayshift)  0 0 hsl(0, 0%, 85%) inset,
+    0 0 0 var(--altbuttonoverlaysize) hsl(230, 89%, 65%),
+    0 var(--altbuttonoverlayshift)  0 var(--altbuttonoverlaysize) hsl(230, 89%, 58%);
+}
+
+.altrock{
+    grid-area: c;
+    top: 0.5rem;
+    right: 3.5rem;
+    box-shadow: 
+    0 var(--altbuttonoverlayshift)  0 0 hsl(0, 0%, 85%) inset,
+    0 0 0 var(--altbuttonoverlaysize) hsl(349, 70%, 56%),
+    0 var(--altbuttonoverlayshift)  0 var(--altbuttonoverlaysize) hsl(349, 71%, 48%);
+}
+
+.altscissors{
+    grid-area: a;
+    top: -2rem;
+    right: 0;
+    box-shadow: 
+    0 var(--altbuttonoverlayshift)  0 0 hsl(0, 0%, 85%) inset,
+    0 0 0 var(--altbuttonoverlaysize) hsl(40, 84%, 53%),
+    0 var(--altbuttonoverlayshift)  0 var(--altbuttonoverlaysize) hsl(39, 93%, 43%);
+}
+
+.altlizard{
+    grid-area: d;
+    top: 0.5rem;
+    left: 3.5rem;
+    box-shadow: 
+    0 var(--altbuttonoverlayshift)  0 0 hsl(0, 0%, 85%) inset,
+    0 0 0 var(--altbuttonoverlaysize) hsl(261, 73%, 68%),
+    0 var(--altbuttonoverlayshift)  0 var(--altbuttonoverlaysize) hsl(261, 73%, 60%);
+}
+
+.altspock{
+    grid-area: e;
+    top: -2rem;
+    left: 1rem;
+    box-shadow: 
+    0 var(--altbuttonoverlayshift)  0 0 hsl(0, 0%, 85%) inset,
+    0 0 0 var(--altbuttonoverlaysize) hsl(189, 59%, 68%),
+    0 var(--altbuttonoverlayshift)  0 var(--altbuttonoverlaysize) hsl(189, 59%, 53%);
+}
+
+.paper{
+    grid-area: a;
+    top: calc(var(--buttonsize)/2.5*(-1));
+    right: calc(var(--buttonsize)/2*(-1));;
+    box-shadow: 
+    0 var(--buttonoverlayshift)  0 0 hsl(0, 0%, 85%) inset,
+    0 0 0 var(--buttonoverlaysize) hsl(230, 89%, 65%),
+    0 var(--buttonoverlayshift)  0 var(--buttonoverlaysize) hsl(230, 89%, 58%);
+}
+
+.rock{
+    grid-area: c;
+    top: calc(var(--buttonsize)/2*(-1));
+    
+    box-shadow: 
+    0 var(--buttonoverlayshift)  0 0 hsl(0, 0%, 85%) inset,
+    0 0 0 var(--buttonoverlaysize) hsl(349, 70%, 56%),
+    0 var(--buttonoverlayshift)  0 var(--buttonoverlaysize) hsl(349, 71%, 48%);
+}
+
+.scissors{
+    grid-area: b;
+    top: calc(var(--buttonsize)/2.5*(-1));
+    right: calc(var(--buttonsize)/2);
+    box-shadow: 
+    0 var(--buttonoverlayshift) 0 0 hsl(0, 0%, 85%) inset,
+    0 0 0 var(--buttonoverlaysize) hsl(40, 84%, 53%),
+    0 var(--buttonoverlayshift)  0 var(--buttonoverlaysize) hsl(39, 93%, 43%);
+}
+
+/*On smaller screens*/
+@media (max-width: 320px) {
+    .paper, .rock, .scissors{
+        width: 80px;
+        height: 80px;
+    }
+}
+
+
+.paper:hover, .rock:hover, .scissors:hover, .rulesBtn:hover, .playAgain:hover, .exitRules:hover, .altGame:hover{
+    cursor: pointer;
+}
+
+.playAgain:hover {
+    color: #e70000;
+}
+
+.rulesDiv{
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    height: auto;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 7rem;
+}
+
+.rulesDiv>*{
+    margin: 0 auto;
+}
+
+.rules{
+    max-width: 80%;
+    padding-bottom: 8rem;
+}
+
+.rulesDiv p{
+    color: var(--Dark-Text);
+    font-weight: 700;
+    font-size: 32px;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.exitRules{
+    width: 20px;
+}
+
+.housePick{
+    background-image: var(--Radial-Gradient);
+}
+
+.gameTwo{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 2rem 3rem 3rem 3rem;
+}
+
+@media (min-width: 1024px) {
+    .gameTwo {
+        width: 1500px;
+    }
+}
+
+@media (max-width: 320px) {
+    .gameTwo {
+        width: 350px;
+    }
+}
+
+#PlayerPick{
+    top:0;
+    right: 0;
+    left: 0;
+    padding: 20px;
+}
+
+#housePick{
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+#PlayerPick::before{
+    content: "YOU PICKED";
+    position: absolute;
+    top: 140px;
+    color: white;
+    letter-spacing: 1px;
+    text-align: center;
+    width: 150%;
+}
+
+.housePick::after, #housePick::after{
+    content: "THE HOUSE PICKED";
+    position: absolute;
+    top: 140px;
+    color: white;
+    letter-spacing: 1px;
+    text-align: center;
+    width: 200%;
+}
+
+.annoncement{
+    color: white;
+    font-size: 54px;
+    padding: 4rem 0 1rem 0;
+}
+
+.playAgain{
+    color: var(--Dark-Text);
+    background-color: white;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    padding: 0.9rem 3.5rem 0.9rem 3.5rem;
+}
+
+#PlayerPick div, #housePick div{
+    width: calc(var(--altbuttonsize) + var(--altbuttonoverlaysize)*2);
+    height: calc(var(--altbuttonsize) + var(--altbuttonoverlaysize)*2);
+    border-radius: 50%;
+    background-color: transparent;
+    position: absolute;
+    transition: box-shadow 1s ease-in-out;
+}
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+    margin-top: 2rem;
+}
+
+.attribution a { 
+    color: hsl(225, 4%, 43%); 
+}
+
+@media (min-width: 800px){
+    :root{
+    --windowwidth: 1440px;
+    --buttonsize: 150px;
+    --altbuttonsize: 120px;
+    --buttonoverlaysize: 30px;
+    --altbuttonoverlaysize: 20px;
+    --buttonoverlayshift: 10px;
+    --altbuttonoverlayshift: 5px;
+    --buttonimgsize: 60px;
+    --altbuttonimgsize: 55px;
+
+    }
+
+    .rulesDiv{
+        top: 5rem;
+        width: 450px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 10px;
+        z-index: 3;
+    }
+
+    .rulesDiv::before{
+        content: "";
+        width:200vw;
+        height:var(--windowwidth);
+        background-color: hsl(0, 0%, 100%, 0.15);
+        position: absolute;
+        top:-5rem;
+        left: -35rem;
+        z-index: 0;
+    }
+
+    .rulesDiv p{
+        width: 100%;
+        text-align: left;
+        position: relative;
+        top: 2rem;
+        padding: 0 2rem 2rem 2rem;
+        margin: 0;  
+    }
+
+    .exitRules{
+        position: absolute;
+        top: 2.5rem;
+        right: 2rem;
+    }
+
+    .rules{
+        max-width: 100%;
+        position: relative;
+        top: 2rem;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .infoheader{
+        width: 750px;
+    }
+
+    .gamename{
+        font-size: 30px;
+    }
+
+    .scorediv{
+        font-size: 14px;
+    }
+
+    .score{
+        font-size: 60px;
+        line-height: 50px;
+    }
+
+    .paper{
+        grid-area: a;
+        right: calc(var(--buttonsize)/0.45*(-1));;
+    }
+
+    .scissors{
+        right: calc(var(--buttonsize)/0.45);
+    }
+
+    .gameTwo{
+        padding: 2rem 25rem 3rem 25rem;
+    }
+
+    .housePick::after, #housePick::after, #PlayerPick::before{
+        top: -80px;
+    }
+
+    .annoncement, .playAgain{
+        position: relative;
+        top: -16rem;
+    }
+
+    .rulesBtn{
+        margin-top: 2rem;
+        position: relative;
+        right: -40%;
+    }
+
+    .altGameBtn{
+        margin-top: 1rem;
+        position: relative;
+        right: -40%;
+    }
+
+    .altGame{
+        width: 600px;
+        height: 500px;
+    }
+
+    .pentagon{
+        width: 420px;
+        position: absolute;
+        top: 0rem;
+        left: 80px;
+        padding: 0rem 0 0 0;
+    }
+
+    .altpaper{
+        top: -6rem;
+        right: 0rem;
+    }
+
+    .altrock{
+        top: -1rem;
+        left: -4rem;
+    }
+
+    .altscissors{
+        top: -5rem;
+        right: 0;
+    }
+
+    .altlizard{
+        top: -1rem;
+        left: 4rem;
+    }
+
+    .altspock{
+        top: -6rem;
+        left: 0rem;
+    }
+}
