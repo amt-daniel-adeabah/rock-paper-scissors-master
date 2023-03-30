@@ -3,13 +3,13 @@ const gamemodeParams = {
     "standard":{
         "rules": "./images/image-rules.svg",
         "changeToGamemode":"altgame",
-        "gamemodeButtonText": "spice it up!",
+        "gamemodeButtonText": "Bonus!",
         "oldgameDivName": ".altGame"
     },
         "altgame":{
         "rules": "./images/image-rules-bonus.svg",
         "changeToGamemode":"standard",
-        "gamemodeButtonText": "take me to mama!",
+        "gamemodeButtonText": "Main!",
         "oldgameDivName": ".game"
     }
 }

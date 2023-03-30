@@ -105,7 +105,7 @@ body{
     background-color: transparent;
     color: white;
     padding: 0.9rem 2.5rem 0.9rem 2.5rem;
-    bottom: 50px;
+    bottom: 200px;
 }
 .rulesBtn:hover {
     background-color: #fff;
@@ -129,6 +129,8 @@ body{
     position: relative;
     background-image: linear-gradient(45deg, hsl(39, 89%, 49%), hsl(230, 89%, 62%), hsl(349, 71%, 52%), hsl(261, 73%, 60%), hsl(189, 59%, 53%));
     z-index: 0;
+    bottom: 190px;
+    cursor: pointer;
     /* visibility: hidden; */
 }
 
@@ -345,9 +347,17 @@ body{
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 768px) {
     .gameTwo {
         width: 350px;
+    }
+
+    .rulesBtn {
+        bottom: 50px;
+    }
+
+    .altGameBtn {
+        bottom: 0;
     }
 }
 
