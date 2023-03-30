@@ -341,26 +341,6 @@ body{
     padding: 2rem 3rem 3rem 3rem;
 }
 
-@media (min-width: 1024px) {
-    .gameTwo {
-        width: 1500px;
-    }
-}
-
-@media (max-width: 768px) {
-    .gameTwo {
-        width: 350px;
-    }
-
-    .rulesBtn {
-        bottom: 50px;
-    }
-
-    .altGameBtn {
-        bottom: 0;
-    }
-}
-
 #PlayerPick{
     top:0;
     right: 0;
@@ -426,6 +406,31 @@ body{
 
 .attribution a { 
     color: hsl(230, 18%, 93%); 
+}
+
+
+@media (min-width: 1024px) {
+    .gameTwo {
+        width: 1500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .gameTwo {
+        width: 350px;
+    }
+
+    .rulesBtn {
+        bottom: 50px;
+    }
+
+    .altGameBtn {
+        bottom: 0;
+    }
+
+    .infoheader{
+        margin: 15px 15px 25px 15px;
+    }
 }
 
 @media (min-width: 800px){
