@@ -212,14 +212,20 @@ const stepFour = function() {
         playerbackground.style.boxShadow = "0 0 0 0px hsl(0, 0%, 100%, 0.07),0 0 0 20px hsl(0, 0%, 100%, 0.05),0 0 0 45px hsl(0, 0%, 100%, 0.03),0 0 0 75px hsl(0, 0%, 100%, 0.013)"
         housebackground.style.boxShadow = "0 0 0 0px hsl(0, 0%, 100%, 0.07),0 0 0 20px hsl(0, 0%, 100%, 0.05),0 0 0 45px hsl(0, 0%, 100%, 0.03),0 0 0 75px hsl(0, 0%, 100%, 0.013)"
     }
+    
     document.querySelector(".score").innerText = currentScore
     const gameDiv = document.querySelector(".wrapper")
     const annoncement = document.createElement("p")
     annoncement.innerText = annoncementText
     annoncement.className = "annoncement"
     const playAgain = document.createElement("div")
-    playAgain.className = "playAgain"
-    playAgain.innerText = "PLAY AGAIN"
+    if(playerScore <= 0){
+        playAgain.className = "playAgain"
+        playAgain.innerText = "PLAY AGAIN"
+    }else if(playerScore >= 1) {
+        playAgain.className = "playAgain"
+        playAgain.innerText = "PLAY BONUS"
+    }
     const rulesButtons = document.querySelector(".rulesBtn")
     gameDiv.insertBefore(annoncement, rulesButtons)
     gameDiv.insertBefore(playAgain, rulesButtons)
@@ -232,7 +238,17 @@ const stepFour = function() {
             stepAltGame()
         }
         document.querySelector(".altGameBtn").style.display = "initial"
-    })    
+    })  
+    
+    playBonus.addEventListener("click", ()=> {
+        
+        if(gamemode === "altgame"){
+            stepAltGame()
+        } else if(gamemode === "standard"){
+            stepZero()
+        }
+        document.querySelector(".altGameBtn").style.display = "initial"
+    })  
 }
 
 const stepZero = function() {
