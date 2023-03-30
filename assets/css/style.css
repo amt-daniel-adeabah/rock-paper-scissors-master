@@ -39,7 +39,7 @@ body{
 
 .wrapper{
     width: var(--windowwidth);
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     background-image: var(--Radial-Gradient);
     margin: 0 auto;
