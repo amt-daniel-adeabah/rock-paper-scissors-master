@@ -55,17 +55,17 @@ If the player wins, they gain 1 point. If the computer wins, the player loses on
 
 ## Steps To Development
 
-27th march, 2023.
+- [x] 27th march, 2023.
 - Added and Designed the README file
 - Created the style.css file
 - Added the required tags for the index.html to perfectly matched with the css styles.
 - Deployed page to netlify
 
-28th - 29th march, 2023.
+- [x] 28th - 29th march, 2023.
 - Added style.css codes
 - More fixes
 
-30th march, 2023.
+- [x] 30th march, 2023.
 - Added JavaScript codes in app.js file
 - More fixes
 
