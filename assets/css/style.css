@@ -105,7 +105,6 @@ body{
     background-color: transparent;
     color: white;
     padding: 0.9rem 2.5rem 0.9rem 2.5rem;
-    position: fixed;
     bottom: 50px;
 }
 .rulesBtn:hover {
@@ -412,10 +411,11 @@ body{
     font-size: 11px; 
     text-align: center; 
     margin-top: 2rem;
+    color: hsl(230, 18%, 93%); 
 }
 
 .attribution a { 
-    color: hsl(225, 4%, 43%); 
+    color: hsl(230, 18%, 93%); 
 }
 
 @media (min-width: 800px){
