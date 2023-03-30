@@ -61,6 +61,14 @@ If the player wins, they gain 1 point. If the computer wins, the player loses on
 - Added the required tags for the index.html to perfectly matched with the css styles.
 - Deployed page to netlify
 
+28th - 29th march, 2023.
+- Added style.css codes
+- More fixes
+
+30th march, 2023.
+- Added JavaScript codes in app.js file
+- More fixes
+
 
 ## Deployed Link
 Deployed link: https://da-rpsmaster.netlify.app/
