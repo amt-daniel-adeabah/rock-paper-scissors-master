@@ -239,16 +239,6 @@ const stepFour = function() {
         }
         document.querySelector(".altGameBtn").style.display = "initial"
     })  
-    
-    playBonus.addEventListener("click", ()=> {
-        
-        if(gamemode === "altgame"){
-            stepAltGame()
-        } else if(gamemode === "standard"){
-            stepZero()
-        }
-        document.querySelector(".altGameBtn").style.display = "initial"
-    })  
 }
 
 const stepZero = function() {
