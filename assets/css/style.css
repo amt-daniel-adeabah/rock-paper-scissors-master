@@ -1,583 +1,607 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
-
 :root{
-/* ## Colors
-### Primary */
---Scissors-Gradient: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
---Paper-Gradient: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
---Rock-Gradient: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
---Lizard-Gradient: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
---Cyan: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
-/* ### Neutral */
---Dark-Text: hsl(229, 25%, 31%);
---Score-Text: hsl(229, 64%, 46%);
---Header-Outline: hsl(217, 16%, 45%);
-/* ### Background */
---Radial-Gradient: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
-
---windowwidth: 375px;
---buttonsize: 100px;
---altbuttonsize: 80px;
---buttonoverlaysize: 15px;
---altbuttonoverlaysize: 12px;
---buttonoverlayshift: 5px;
---altbuttonoverlayshift: 4px;
---buttonimgsize: 45px;
---altbuttonimgsize: 40px;
+    --scoreText: hsl(229, 64%, 46%);
+    --darkText : hsl(229, 25%, 31%);
+    --headerOutline: hsl(217, 16%, 45%);
 }
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+html{
+    font-size:10px;
 }
+
+@font-face {
+    font-family: Barlow;
+    src: url(/Barlow_Semi_Condensed/BarlowSemiCondensed-Regular.ttf);
+}
+  
+
 
 body{
-    font-family: "Barlow Semi Condensed";
-    overflow: hidden;
+    margin:0;
+    padding:0;
+    font-family:Barlow;
 }
 
-.wrapper{
-    width: var(--windowwidth);
-    min-height: 100vh;
-    width: 100%;
-    background-image: var(--Radial-Gradient);
-    margin: 0 auto;
-    padding: 1.5rem 0 3rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.infoheader{
-    border: solid 3px var(--Header-Outline);
-    border-radius: 5px;
-    padding: 0.6rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 0 1.75rem 5rem 1.75rem;
-}
-
-.gamename{
-    color: white;
-    text-transform: uppercase;
-    font-size: 20px;
-    word-spacing: 100vw;
-    padding: 0.5rem;
-    line-height: 0.8;
-}
-
-.scorediv{
-    background-color: white;
-    border-radius: 5px;
-    color: var(--Score-Text);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 0.5rem 1.5rem 0.75rem 1.5rem;
-    text-align: center;
-    display: flex;
+.main{
+    color:white;
+    height:100vh;
+    background: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    display:flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    overflow: hidden;
+}
+
+/* Title And Score */
+
+.titleAndScore{
+    width:45%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border:3px solid var(--headerOutline);
+    padding:1.5rem 1.7rem;
+    border-radius:1.5rem;
+    position:relative;
+    top:2rem;
+    margin-bottom: 4rem;
+}
+
+.titleLogo img{
+    height:10rem;
 }
 
 .score{
-    color: var(--Dark-Text);
-    opacity: 90%;
-    font-size: 44px;
-    line-height: 30px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:3rem 5rem;
+    background-color: white;
+    border-radius:1rem;
 }
 
-.rulesBtn{
-    margin-top: 3rem;
-    width: auto;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    line-height: 12px;
-    border-radius: 10px;
-    border: solid 2px var(--Header-Outline);
-    background-color: transparent;
-    color: white;
-    padding: 0.9rem 2.5rem 0.9rem 2.5rem;
-    bottom: 200px;
-}
-.rulesBtn:hover {
-    background-color: #fff;
-    color: #000;
+.scoreTitle{
+    color:var(--scoreText);
+    font-size:1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5rem;
 }
 
-.altGameBtn{
-    margin-top: 1rem;
-    width: auto;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    line-height: 12px;
-    border-radius: 10px;
-    border: solid 2px var(--Header-Outline);
-    background-color: transparent;
-    color: white;
-    padding: 0.9rem 2.5rem 0.9rem 2.5rem;
-    position: relative;
-    background-image: linear-gradient(45deg, hsl(39, 89%, 49%), hsl(230, 89%, 62%), hsl(349, 71%, 52%), hsl(261, 73%, 60%), hsl(189, 59%, 53%));
-    z-index: 0;
-    bottom: 190px;
-    cursor: pointer;
-    /* visibility: hidden; */
+
+.nbScore{
+    color:var(--darkText);
+    font-size:5rem;
+    font-weight: 700;
 }
+
+/* Game */
 
 .game{
-    display: grid;
-    grid-template-areas: 
-    "a . b"
-    ". . ."
-    ". c .";
-    justify-items: center;
-    width: 100%;
-    padding: 3rem 0 0 0;
-}
-
-.altGame{
-    display: grid;
-    grid-template-areas: 
-    ". a ."
-    "e . b"
-    "d . c";
-    justify-items: center;
-    width: 100%;
-    padding: 3rem 0 0 0;
-    position: relative;
-}
-
-.triangle{
-    max-width: 100%;
-}
-
-.pentagon{
-    width: 220px;
-    position: absolute;
-    top: 0rem;
-    left: 75px;
-    padding: 3rem 0 0 0;
-}
-
-.paper, .rock, .scissors, .housePick{
-    background-color: white;
-    height: var(--buttonsize);
-    width: var(--buttonsize);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
+    position:relative;
+    top:3rem;
+    height:420px;
+    width:auto;
+    background: url('./images/bg-triangle.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    display:flex;
+    justify-content: space-between;
     align-items: center;
-    position: relative;
 }
 
-.altpaper, .altrock, .altscissors, .altlizard, .altspock{
-    background-color: white;
-    height: var(--altbuttonsize);
-    width: var(--altbuttonsize);
+.game img{
+    width:4.5rem;
+}
+
+
+
+.icon {
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.paper img, .rock img, .scissors img{
-    width: var(--buttonimgsize);
-}
-
-.altpaper img, .altrock img, .altscissors img, .altlizard img, .altspock img{
-    width: var(--altbuttonimgsize);
-}
-
-.altpaper{
-    grid-area: b;
-    top: -2rem;
-    right: 1rem;
-    box-shadow: 
-    0 var(--altbuttonoverlayshift)  0 0 hsl(0, 0%, 85%) inset,
-    0 0 0 var(--altbuttonoverlaysize) hsl(230, 89%, 65%),
-    0 var(--altbuttonoverlayshift)  0 var(--altbuttonoverlaysize) hsl(230, 89%, 58%);
-}
-
-.altrock{
-    grid-area: c;
-    top: 0.5rem;
-    right: 3.5rem;
-    box-shadow: 
-    0 var(--altbuttonoverlayshift)  0 0 hsl(0, 0%, 85%) inset,
-    0 0 0 var(--altbuttonoverlaysize) hsl(349, 70%, 56%),
-    0 var(--altbuttonoverlayshift)  0 var(--altbuttonoverlaysize) hsl(349, 71%, 48%);
-}
-
-.altscissors{
-    grid-area: a;
-    top: -2rem;
-    right: 0;
-    box-shadow: 
-    0 var(--altbuttonoverlayshift)  0 0 hsl(0, 0%, 85%) inset,
-    0 0 0 var(--altbuttonoverlaysize) hsl(40, 84%, 53%),
-    0 var(--altbuttonoverlayshift)  0 var(--altbuttonoverlaysize) hsl(39, 93%, 43%);
-}
-
-.altlizard{
-    grid-area: d;
-    top: 0.5rem;
-    left: 3.5rem;
-    box-shadow: 
-    0 var(--altbuttonoverlayshift)  0 0 hsl(0, 0%, 85%) inset,
-    0 0 0 var(--altbuttonoverlaysize) hsl(261, 73%, 68%),
-    0 var(--altbuttonoverlayshift)  0 var(--altbuttonoverlaysize) hsl(261, 73%, 60%);
-}
-
-.altspock{
-    grid-area: e;
-    top: -2rem;
-    left: 1rem;
-    box-shadow: 
-    0 var(--altbuttonoverlayshift)  0 0 hsl(0, 0%, 85%) inset,
-    0 0 0 var(--altbuttonoverlaysize) hsl(189, 59%, 68%),
-    0 var(--altbuttonoverlayshift)  0 var(--altbuttonoverlaysize) hsl(189, 59%, 53%);
-}
-
-.paper{
-    grid-area: a;
-    top: calc(var(--buttonsize)/2.5*(-1));
-    right: calc(var(--buttonsize)/2*(-1));;
-    box-shadow: 
-    0 var(--buttonoverlayshift)  0 0 hsl(0, 0%, 85%) inset,
-    0 0 0 var(--buttonoverlaysize) hsl(230, 89%, 65%),
-    0 var(--buttonoverlayshift)  0 var(--buttonoverlaysize) hsl(230, 89%, 58%);
+    padding: 4.5rem;
+    background-color: #f7f7f7;
+    box-shadow: inset 0px 6px lightgray;
+    cursor: pointer;
 }
 
 .rock{
-    grid-area: c;
-    top: calc(var(--buttonsize)/2*(-1));
-    
-    box-shadow: 
-    0 var(--buttonoverlayshift)  0 0 hsl(0, 0%, 85%) inset,
-    0 0 0 var(--buttonoverlaysize) hsl(349, 70%, 56%),
-    0 var(--buttonoverlayshift)  0 var(--buttonoverlaysize) hsl(349, 71%, 48%);
+    height: 5.2rem;
 }
 
-.scissors{
-    grid-area: b;
-    top: calc(var(--buttonsize)/2.5*(-1));
-    right: calc(var(--buttonsize)/2);
-    box-shadow: 
-    0 var(--buttonoverlayshift) 0 0 hsl(0, 0%, 85%) inset,
-    0 0 0 var(--buttonoverlaysize) hsl(40, 84%, 53%),
-    0 var(--buttonoverlayshift)  0 var(--buttonoverlaysize) hsl(39, 93%, 43%);
+.paperDiv{
+    background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    padding: 2.5rem;
+    border-radius:50%;
+    align-self:flex-start;
+    position:relative;
+    left: 4rem;
+    top: -4rem;
+    box-shadow: 0px 5px 1px hsl(230, 95%, 59%);
+}
+.paperDiv:hover{
+    box-shadow: 0px 1px 0px 20px rgba(124, 113, 146, 0.1);
 }
 
-/*On smaller screens*/
-@media (max-width: 320px) {
-    .paper, .rock, .scissors{
-        width: 80px;
-        height: 80px;
-    }
+.rockDiv{
+    background: linear-gradient(hsl(349, 71%, 52%),hsl(349, 70%, 56%));
+    padding: 2.5rem;
+    border-radius:50%;
+    align-self:flex-end;
+    position:relative;
+    top:-4rem;
+    box-shadow: 0px 5px 1px hsl(349, 76%, 50%);
+}
+.rockDiv:hover{
+    box-shadow: 0px 1px 0px 20px rgba(124, 113, 146, 0.1);
 }
 
-
-.paper:hover, .rock:hover, .scissors:hover, .rulesBtn:hover, .playAgain:hover, .exitRules:hover, .altGame:hover{
-    cursor: pointer;
+.scissorsDiv{
+    background: linear-gradient(hsl(39, 89%, 49%),hsl(40, 84%, 53%));
+    padding:2.5rem;
+    border-radius:50%;
+    align-self:flex-start;
+    position:relative;
+    right: 4rem;
+    top: -4rem;
+    box-shadow: 0px 5px 1px hsl(39, 96%, 35%);
+}
+.scissorsDiv:hover{
+    box-shadow: 0px 1px 0px 20px rgba(124, 113, 146, 0.1);
 }
 
-.playAgain:hover {
-    color: #e70000;
-}
-
-.rulesDiv{
-    position: absolute;
-    background-color: white;
-    width: 100%;
-    height: auto;
-    top: 0;
+/* rules */
+.rules{
+    border:2px solid hsl(217, 16%, 45%);
+    border-radius:1rem;
+    position:relative;
+    bottom:1rem;
+    right:-45%;
+    margin-right:4rem;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:1.5rem;
+    font-weight:600;
+    letter-spacing: 0.2rem;
+    padding:1rem 3.5rem;
+    cursor:pointer;
+}
+.rules:hover {
+    background-color: #f7f7f7;
+    color: var(--darkText);
+}
+
+.rulesPic{
+    filter:brightness(1);
+    background: #f7f7f7;
+    height:35rem;
+    width:35rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding:1.5rem 4rem 1.5rem 4rem;
+    border-radius:1rem;
+    z-index:5;
+    position:absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top:18rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    display:none;
+}
+
+.displayFlex{
+    display:flex;
+}
+
+.rulesPic .imgRules{
+    height:25rem;
+    width:25rem;
+    display:block;
+}
+
+.rulesTitleClose{
+    width:100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close{
+    height:3rem;
+    display:block;
+    cursor:pointer;
+}
+
+.rulesPic h4{
+    margin:0;
+    width:max-content;
+    color:hsl(237, 49%, 15%);
+    font-weight:700;
+    font-size:3.5rem;
+}
+
+/* dark bg */
+.darkBg{
+    filter:brightness(35%);
+}
+
+/* Choices */
+.choices{
+    height:520px;
+    width:644px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+    font-size:2.5rem;
+    font-weight:600;
+    display:none;
+}
+
+.paperChoice{
+    background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    padding:2.5rem;
+    border-radius:50%;
+    box-shadow: 0px 9px 1px hsl(230, 95%, 59%);
+    display:none;
+    position:static;
+}
+
+.paperChoice img{
+    width:10rem;
+}
+
+.rockChoice{
+    background: linear-gradient(hsl(349, 71%, 52%),hsl(349, 70%, 56%));
+    padding:2.5rem;
+    border-radius:50%;
+    box-shadow: 0px 9px 1px hsl(349, 76%, 50%);
+    display:none;
+    position:static;
+}
+
+.rockChoice img{
+    width:10rem;
+    height:10.5rem;
+}
+
+.scissorsChoice{
+    background: linear-gradient(hsl(39, 89%, 49%),hsl(40, 84%, 53%));
+    padding:2.5rem;
+    border-radius:50%;
+    box-shadow: 0px 9px 1px hsl(39, 96%, 35%);
+    display:none;
+    position:static;
+}
+
+.scissorsChoice img{
+    width:10rem;
+}
+
+
+
+.youPicked{
+    height:100%;
+    font-size:2rem;
+    display:flex;
     flex-direction: column;
     justify-content: center;
-    padding-bottom: 7rem;
+    align-items: center;
 }
 
-.rulesDiv>*{
-    margin: 0 auto;
+.pickedMsg{
+    margin-bottom:4rem;
 }
 
-.rules{
-    max-width: 80%;
-    padding-bottom: 8rem;
+.housePicked{
+    height:100%;
+    font-size:2rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.rulesDiv p{
-    color: var(--Dark-Text);
-    font-weight: 700;
-    font-size: 32px;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+.noChoiceYet{
+    background-color: rgba(41, 41, 68,0.5);
+    border-radius:50%;
+    width:200px;
+    height:220px;
+    margin-top:1rem;
 }
 
-.exitRules{
-    width: 20px;
+.displayNone{
+    display:none;
 }
 
-.housePick{
-    background-image: var(--Radial-Gradient);
-}
-
-.gameTwo{
-    display: flex;
+/* Result */
+.result{
+    /* to delete */
+    height:519px;
+    width:100rem;
     flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    padding: 2rem 3rem 3rem 3rem;
+    justify-content: space-around;
+    align-items: baseline;
+    font-size:2.5rem;
+    font-weight:600;
+    display:none;
 }
 
-#PlayerPick{
-    top:0;
-    right: 0;
-    left: 0;
-    padding: 20px;
+.printResult{
+    z-index:10;
 }
 
-#housePick{
-    top: 0;
-    right: 0;
-    left: 0;
-}
-
-#PlayerPick::before{
-    content: "YOU PICKED";
-    position: absolute;
-    top: 140px;
-    color: white;
-    letter-spacing: 1px;
+.winOrLose{
+    font-size:5rem;
+    align-self: center;
     text-align: center;
-    width: 150%;
 }
 
-.housePick::after, #housePick::after{
-    content: "THE HOUSE PICKED";
-    position: absolute;
-    top: 140px;
-    color: white;
-    letter-spacing: 1px;
-    text-align: center;
-    width: 200%;
+.youWin{
+    display:none;
 }
 
-.annoncement{
-    color: white;
-    font-size: 54px;
-    padding: 4rem 0 1rem 0;
+.youLose{
+    display:none;
 }
 
 .playAgain{
-    color: var(--Dark-Text);
-    background-color: white;
-    border-radius: 10px;
-    letter-spacing: 2px;
-    padding: 0.9rem 3.5rem 0.9rem 3.5rem;
+    font-size:1.5rem;
+    border:none;
+    background-color: #f7f7f7;
+    padding: 1.2rem 5.5rem 1rem 5.5rem;
+    border-radius:1rem;
+    font-weight:600;
+    cursor:pointer;
+    text-align: center;
 }
 
-#PlayerPick div, #housePick div{
-    width: calc(var(--altbuttonsize) + var(--altbuttonoverlaysize)*2);
-    height: calc(var(--altbuttonsize) + var(--altbuttonoverlaysize)*2);
-    border-radius: 50%;
-    background-color: transparent;
-    position: absolute;
-    transition: box-shadow 1s ease-in-out;
+.playAgain:hover{
+    color:hsl(349, 71%, 52%);
 }
 
-.attribution { 
-    font-size: 15px; 
-    text-align: center; 
-    margin-top: 2rem;
-    color: hsl(230, 18%, 93%); 
-}
-
-.attribution a { 
-    color: hsl(230, 18%, 93%); 
+.winnerBoxShadow{
+    box-shadow: 0px 1px 0px 60px rgba(124, 113, 146, 0.5),
+    0px 1px 0px 130px rgba(124, 113, 146, 0.3),
+    0px 1px 0px 200px rgba(124, 113, 146, 0.1);
 }
 
 
-@media (min-width: 1024px) {
-    .gameTwo {
-        width: 1500px;
-    }
-}
-
-@media (max-width: 768px) {
-    .gameTwo {
-        width: 350px;
+@media(max-width:800px){
+    .main{
+        height:100vh;
     }
 
-    .rulesBtn {
-        bottom: 50px;
+    /* game */
+    .game{
+        background-size: 33%;
+        height:240px;
+        width:auto;
     }
 
-    .altGameBtn {
-        bottom: 0;
+    .game img{
+        /* width:3.5rem; */
+        width:7rem;
+        height:auto;
+        padding:1.5rem;
     }
 
-    .infoheader{
-        margin: 15px 15px 25px 15px;
-    }
-}
-
-@media (min-width: 800px){
-    :root{
-    --windowwidth: 1440px;
-    --buttonsize: 150px;
-    --altbuttonsize: 120px;
-    --buttonoverlaysize: 30px;
-    --altbuttonoverlaysize: 20px;
-    --buttonoverlayshift: 10px;
-    --altbuttonoverlayshift: 5px;
-    --buttonimgsize: 60px;
-    --altbuttonimgsize: 55px;
+    .icon{
+        box-shadow: inset 0px 5px lightgray;
 
     }
 
-    .rulesDiv{
-        top: 5rem;
-        width: 450px;
-        height: auto;
-        display: flex;
-        flex-direction: column;
+    .paperDiv,.rockDiv,.scissorsDiv{
+        padding:1rem;
+    }
+
+    .paperDiv{
+        position:relative;
+        top:0.5rem;
+        left:4rem;
+        box-shadow: 0px 5px 1px hsl(230, 95%, 59%);
+
+    }
+
+    .scissorsDiv{
+        position:relative;
+        top:0.5rem;
+        right:4rem;
+        box-shadow: 0px 5px 1px hsl(39, 96%, 35%);
+
+    }
+
+    .rockDiv{
+        position:relative;
+        top:1rem;
+        box-shadow: 0px 5px 1px hsl(349, 76%, 50%);
+
+    }
+
+    /* choice */
+    .choices{
+        width:240px;
+        height:auto;
+        font-size:1.5rem;
+        justify-content: space-around;
+    }
+
+    .youPicked,.housePicked{
+        font-size:1.2rem;
+        flex-direction: column-reverse;
+        justify-content: baseline;
+    }
+
+    .youPicked{
+        margin-right:2rem;
+    }
+
+    .housePicked{
+        margin-left:2rem;
+    }
+
+    .pickedMsg{
+        margin-bottom:0;
+        margin-top:3rem;
+    }
+
+    .paperChoice{
+        padding:1rem;
+        display:none;
+        position:static;
+        height:auto;
+        width:9.5rem;
+    }
+    
+    .paperChoice img{
+        width:6.5rem;
+        height:auto;
+        padding:1.5rem;
+    }
+    
+    .rockChoice{
+        background: linear-gradient(hsl(349, 71%, 52%),hsl(349, 70%, 56%));
+        padding:1rem;
+        display:none;
+        position:static;
+        height:auto;
+        width:9.5rem;
+        
+    }
+    
+    .rockChoice img{
+        width:6.6rem;
+        height:7.3rem;
+        padding:1.5rem;
+    }
+    
+    .scissorsChoice{
+        padding:1rem;
+        display:none;
+        position:static;
+        height:auto;
+        width:9.5rem;
+    }
+    
+    .scissorsChoice img{
+        width:6.5rem;
+        height:auto;
+        padding:1.5rem;
+    }
+
+    .noChoiceYet{
+        width:6.5rem;
+        height:auto;
+        margin-top:0;
+
+        
+    }
+
+    /* result */
+    .result{
+        width:240px;
+        height:70%;
+        align-items:center;
         justify-content: center;
-        border-radius: 10px;
-        z-index: 3;
+        font-size:1.5rem;
+        z-index:9;
     }
 
-    .rulesDiv::before{
-        content: "";
-        width:200vw;
-        height:var(--windowwidth);
-        background-color: hsl(0, 0%, 100%, 0.15);
-        position: absolute;
-        top:-5rem;
-        left: -35rem;
-        z-index: 0;
+    .winOrLose{
+        font-size:3.5rem;
+        font-weight:700;
+        align-self: center;
+        text-align: center;
     }
 
-    .rulesDiv p{
-        width: 100%;
-        text-align: left;
-        position: relative;
-        top: 2rem;
-        padding: 0 2rem 2rem 2rem;
-        margin: 0;  
+    .playAgain{
+        font-size:1.3rem;
+        padding: 1.2rem 3.7rem;
     }
 
-    .exitRules{
-        position: absolute;
-        top: 2.5rem;
-        right: 2rem;
+    .printResult{
+        display:block;
+        position:absolute;
+        bottom:8.5rem;
     }
 
-    .rules{
-        max-width: 100%;
-        position: relative;
-        top: 2rem;
-        padding: 0;
-        margin: 0 auto;
+    .winnerBoxShadow{
+        box-shadow: 0px 1px 0px 20px rgba(124, 113, 146, 0.5),
+        0px 1px 0px 50px rgba(124, 113, 146, 0.3),
+        0px 1px 0px 80px rgba(124, 113, 146, 0.1);
     }
 
-    .infoheader{
-        width: 750px;
+
+    
+    /* title and score */
+    .titleAndScore{
+        width:80%;
+        padding:1rem 1rem;
+        border-radius:0.5rem;
     }
 
-    .gamename{
-        font-size: 30px;
-    }
-
-    .scorediv{
-        font-size: 14px;
+    .titleLogo img{
+        height:4rem;
     }
 
     .score{
-        font-size: 60px;
-        line-height: 50px;
+        letter-spacing: 0.2rem;
+        padding:1rem 1rem;
+        border-radius:0.5rem;
+
     }
 
-    .paper{
-        grid-area: a;
-        right: calc(var(--buttonsize)/0.45*(-1));;
+    .scoreTitle{
+        font-size:1rem;
+    }
+    
+    .nbScore{
+        font-size:2rem;
     }
 
-    .scissors{
-        right: calc(var(--buttonsize)/0.45);
+    /* rules */
+    .rules{
+        position:static;
+        align-self:center;
+        font-size:1rem;
+        border-radius:0.5rem;
+        height:2rem;
+        width:10rem;
+        border:2px solid hsl(217, 16%, 45%);
+        margin-right:0;
     }
 
-    .gameTwo{
-        padding: 2rem 25rem 3rem 25rem;
+
+    .rulesPic{
+        border-radius:0;
+        margin:0;
+        padding:0;
+        height:100%;
+        width:100%;
+        top:0;
+        justify-content: space-evenly;
+
     }
 
-    .housePick::after, #housePick::after, #PlayerPick::before{
-        top: -80px;
+    .rulesTitleClose h4{
+        position:absolute;
+        top:5rem;
+        left:0;
+        right:0;
+        margin:auto;
     }
 
-    .annoncement, .playAgain{
-        position: relative;
-        top: -16rem;
-    }
-
-    .rulesBtn{
-        margin-top: 2rem;
-        position: relative;
-        right: -40%;
-    }
-
-    .altGameBtn{
-        margin-top: 1rem;
-        position: relative;
-        right: -40%;
-    }
-
-    .altGame{
-        width: 600px;
-        height: 500px;
-    }
-
-    .pentagon{
-        width: 420px;
-        position: absolute;
-        top: 0rem;
-        left: 80px;
-        padding: 0rem 0 0 0;
-    }
-
-    .altpaper{
-        top: -6rem;
-        right: 0rem;
-    }
-
-    .altrock{
-        top: -1rem;
-        left: -4rem;
-    }
-
-    .altscissors{
-        top: -5rem;
-        right: 0;
-    }
-
-    .altlizard{
-        top: -1rem;
-        left: 4rem;
-    }
-
-    .altspock{
-        top: -6rem;
-        left: 0rem;
-    }
+   .close{
+        position:absolute;
+        bottom:3rem;
+        left:0;
+        right:0;
+        margin:auto;
+   }
 }
