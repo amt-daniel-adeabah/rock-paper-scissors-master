@@ -80,7 +80,7 @@ body {
     top: 3rem;
     height: 420px;
     width: auto;
-    background: url('./images/bg-triangle.svg');
+    background: url('/images/bg-triangle.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 60%;
