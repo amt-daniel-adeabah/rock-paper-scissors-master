@@ -69,6 +69,10 @@ If the player wins, they gain 1 point. If the computer wins, the player loses on
 - Added JavaScript codes in app.js file
 - More fixes
 
+- [x] 31st march, 2023.
+- Updated index.html and style.css
+- Imported Barlow_Semi_Condensed font-family
+- More fixes
 
 ## Deployed Link
 Deployed link: https://da-rpsmaster.netlify.app/
