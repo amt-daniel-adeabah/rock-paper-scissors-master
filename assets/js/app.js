@@ -35,14 +35,12 @@ scissors.addEventListener('click', ()=>{
     userChoice = "Scissors";
     didUserChoose = true;
     play(1,2);
-
 });
 
 rock.addEventListener('click', ()=>{
     userChoice = "Rock";
     didUserChoose = true;
     play(1,2);
-
 })
 
 
@@ -64,10 +62,7 @@ const play = (userC,computerC)=>{
         computerChoice = element;
 
     setTimeout(()=>{
-        
-
         document.getElementById(`computer${element}`).style.display = "flex";
-        // document.querySelector('.noChoiceYet').classList.toggle('displayNone');
         document.querySelector('.noChoiceYet').style.display = "none";
     },1000);
 
@@ -77,7 +72,6 @@ const play = (userC,computerC)=>{
 
     } else if(userChoice === "Paper" && computerChoice === "Rock"){
         whoWon.push("user","paper");
-
     }
 
     if(userChoice === "Scissors" && computerChoice === "Paper"){
@@ -85,8 +79,6 @@ const play = (userC,computerC)=>{
 
     } else if(userChoice === "Scissors" && computerChoice === "Rock"){
         whoWon.push("computer","rock");
-
-
     }
 
     if(userChoice === "Rock" && computerChoice === "Paper"){
@@ -94,7 +86,6 @@ const play = (userC,computerC)=>{
 
     } else if(userChoice === "Rock" && computerChoice === "Scissors"){
         whoWon.push("user","rock");
-
     }
 
     setTimeout(()=>{
@@ -133,8 +124,6 @@ const play = (userC,computerC)=>{
             case "user":
                 document.querySelector('.youWin').style.display = "block";
                 document.getElementById(`${whoWon[1]}Result`).classList.toggle("winnerBoxShadow");
-
-
         }
 
         if(whoWon[0] === 'user'){
@@ -193,8 +182,6 @@ document.querySelector('.playAgain').addEventListener('click',()=>{
         case "user":
             document.querySelector('.youWin').style.display = "none";
             document.getElementById(`${whoWon[1]}Result`).classList.toggle("winnerBoxShadow");
-
-
     }
 
     document.querySelector('.noChoiceYet').style.display = "flex";
@@ -204,7 +191,6 @@ document.querySelector('.playAgain').addEventListener('click',()=>{
     whoWon = [];
     document.querySelector('.result').style.display = "none";
     document.querySelector('.game').style.display = "flex";
-
 })
 
 const randomFigure = () => {

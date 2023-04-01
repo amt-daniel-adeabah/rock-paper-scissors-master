@@ -74,6 +74,9 @@ If the player wins, they gain 1 point. If the computer wins, the player loses on
 - Imported Barlow_Semi_Condensed font-family
 - More fixes
 
+- [x] 1st April, 2023.
+- More fixes
+
 ## Deployed Link
 Deployed link: https://da-rpsmaster.netlify.app/
 

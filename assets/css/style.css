@@ -13,8 +13,6 @@ html{
     src: url(/Barlow_Semi_Condensed/BarlowSemiCondensed-Regular.ttf);
 }
   
-
-
 body {
     margin: 0;
     padding: 0;
@@ -43,11 +41,11 @@ body {
     border-radius: 1.5rem;
     position: relative;
     top: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 .titleLogo img {
-    height: 10rem;
+    height: 8rem;
 }
 
 .score {
@@ -92,8 +90,6 @@ body {
 .game img {
     width: 4.5rem;
 }
-
-
 
 .icon {
     border-radius: 50%;
@@ -306,7 +302,7 @@ body {
 }
 
 .noChoiceYet {
-    background-color: rgba(41, 41, 68,0.5);
+    background-color: rgba(12, 8, 8, 0.5);
     border-radius: 50%;
     width: 200px;
     height: 220px;
@@ -370,6 +366,7 @@ body {
 }
 
 
+/* Mobile & Tablet */
 @media(max-width: 800px){
     .main {
         min-height: 100vh;
@@ -377,20 +374,27 @@ body {
 
     /* game */
     .game {
-        background-size: 33%;
-        height: 240px;
+        background-size: 63%;
+        height: 340px;
         width: auto;
     }
 
     .game img {
-        /* width:3.5rem; */
-        width: 7rem;
         height: auto;
         padding: 1.5rem;
     }
 
     .icon {
-        box-shadow: inset 0px 5px lightgray;
+        border-radius: 50%;
+        padding: 1rem;
+        background-color: #f7f7f7;
+        box-shadow: inset 0px 6px lightgray;
+        cursor: pointer;
+    }
+
+    .icon img{
+        width: 50px;
+        height: 50px;
     }
 
     .paperDiv,.rockDiv,.scissorsDiv {
@@ -402,6 +406,7 @@ body {
         top: 0.5rem;
         left: 4rem;
         box-shadow: 0px 5px 1px hsl(230, 95%, 59%);
+        padding: 1.5rem;
     }
 
     .scissorsDiv {
@@ -409,12 +414,14 @@ body {
         top: 0.5rem;
         right: 4rem;
         box-shadow: 0px 5px 1px hsl(39, 96%, 35%);
+        padding: 1.5rem;
     }
 
     .rockDiv {
         position: relative;
-        top: 1rem;
+        top: -5rem;
         box-shadow: 0px 5px 1px hsl(349, 76%, 50%);
+        padding: 1.5rem;
     }
 
     /* choice */
@@ -445,11 +452,10 @@ body {
     }
 
     .paperChoice {
-        padding: 1rem;
+        padding: 1.5rem;
         display: none;
         position: static;
         height: auto;
-        width: 9.5rem;
     }
     
     .paperChoice img {
@@ -460,12 +466,10 @@ body {
     
     .rockChoice {
         background: linear-gradient(hsl(349, 71%, 52%),hsl(349, 70%, 56%));
-        padding: 1rem;
+        padding: 1.5rem;
         display: none;
         position: static;
         height: auto;
-        width: 9.5rem;
-        
     }
     
     .rockChoice img {
@@ -475,11 +479,10 @@ body {
     }
     
     .scissorsChoice {
-        padding: 1rem;
+        padding: 1.5rem;
         display: none;
         position: static;
         height: auto;
-        width: 9.5rem;
     }
     
     .scissorsChoice img {
@@ -529,7 +532,6 @@ body {
     }
 
 
-    
     /* title and score */
     .titleAndScore {
         width: 80%;
@@ -593,4 +595,4 @@ body {
         right: 0;
         margin: auto;
    }
-}
+} 
