@@ -77,6 +77,10 @@ If the player wins, they gain 1 point. If the computer wins, the player loses on
 - [x] 1st April, 2023.
 - More fixes
 
+- [x] 3rd April, 2023.
+- Added localStorage to the score to maintain it state on browser refresh.
+- More fixes
+
 ## Deployed Link
 Deployed link: https://da-rpsmaster.netlify.app/
 

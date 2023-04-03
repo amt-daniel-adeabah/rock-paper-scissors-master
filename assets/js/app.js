@@ -8,7 +8,13 @@ const scissors = document.querySelector('.scissorsDiv');
 const rock = document.querySelector('.rockDiv');
 
 
-let score = 0;
+// initialize the score with the value from localStorage, or 0 if there is no value
+let score = localStorage.getItem('score') ? parseInt(localStorage.getItem('score')) : 0;
+
+// set the initial value of the score element
+document.querySelector('.nbScore').innerHTML = score;   
+
+
 let userChoice = "";
 let computerChoice = "";
 let whoWon = [];
@@ -55,85 +61,91 @@ const play = (userC,computerC)=>{
         document.querySelector('.scissorsChoice').style.display = "flex";
     }
 
-    let element = randomFigure();
-        while(element===userChoice){
-            element = randomFigure();
-        }
-        computerChoice = element;
+let element = randomFigure();
+    while(element===userChoice){
+        element = randomFigure();
+    }
+    computerChoice = element;
 
-    setTimeout(()=>{
-        document.getElementById(`computer${element}`).style.display = "flex";
-        document.querySelector('.noChoiceYet').style.display = "none";
-    },1000);
+setTimeout(()=>{
+    document.getElementById(`computer${element}`).style.display = "flex";
+    document.querySelector('.noChoiceYet').style.display = "none";
+},1000);
 
 
-    if(userChoice === "Paper" && computerChoice === "Scissors"){
-        whoWon.push("computer","scissors");
+if(userChoice === "Paper" && computerChoice === "Scissors"){
+    whoWon.push("computer","scissors");
 
-    } else if(userChoice === "Paper" && computerChoice === "Rock"){
-        whoWon.push("user","paper");
+} else if(userChoice === "Paper" && computerChoice === "Rock"){
+    whoWon.push("user","paper");
+}
+
+if(userChoice === "Scissors" && computerChoice === "Paper"){
+    whoWon.push("user","scissors");
+
+} else if(userChoice === "Scissors" && computerChoice === "Rock"){
+    whoWon.push("computer","rock");
+}
+
+if(userChoice === "Rock" && computerChoice === "Paper"){
+    whoWon.push("computer","paper");
+
+} else if(userChoice === "Rock" && computerChoice === "Scissors"){
+    whoWon.push("user","rock");
+}
+
+setTimeout(()=>{
+    document.querySelector('.choices').style.display = "none";
+    document.querySelector('.result').style.display = "flex";
+
+    switch(userChoice){
+        case 'Paper':
+            document.getElementById('paperResult').style.display = "flex";
+            break;
+        case 'Scissors':
+            document.getElementById('scissorsResult').style.display = "flex";
+            break;
+        case 'Rock':
+            document.getElementById('rockResult').style.display = "flex";
+            break;
     }
 
-    if(userChoice === "Scissors" && computerChoice === "Paper"){
-        whoWon.push("user","scissors");
-
-    } else if(userChoice === "Scissors" && computerChoice === "Rock"){
-        whoWon.push("computer","rock");
+    switch(computerChoice){
+        case 'Paper':
+            document.getElementById('paperResultComputer').style.display = "flex";
+            break;
+        case 'Scissors':
+            document.getElementById('scissorsResultComputer').style.display = "flex";
+            break;
+        case 'Rock':
+            document.getElementById('rockResultComputer').style.display = "flex";
+            break;
     }
 
-    if(userChoice === "Rock" && computerChoice === "Paper"){
-        whoWon.push("computer","paper");
-
-    } else if(userChoice === "Rock" && computerChoice === "Scissors"){
-        whoWon.push("user","rock");
+    switch(whoWon[0]){
+        case 'computer':
+            document.querySelector('.youLose').style.display = "block";
+            document.getElementById(`${whoWon[1]}ResultComputer`).classList.toggle("winnerBoxShadow");
+            break;
+        case "user":
+            document.querySelector('.youWin').style.display = "block";
+            document.getElementById(`${whoWon[1]}Result`).classList.toggle("winnerBoxShadow");
     }
 
-    setTimeout(()=>{
-        document.querySelector('.choices').style.display = "none";
-        document.querySelector('.result').style.display = "flex";
 
-        switch(userChoice){
-            case 'Paper':
-                document.getElementById('paperResult').style.display = "flex";
-                break;
-            case 'Scissors':
-                document.getElementById('scissorsResult').style.display = "flex";
-                break;
-            case 'Rock':
-                document.getElementById('rockResult').style.display = "flex";
-                break;
-        }
+    // update the score in localStorage every time it changes
+    const updateScore = (newScore) => {
+    score = newScore;
+    localStorage.setItem('score', newScore);
+    document.querySelector('.nbScore').innerHTML = score;
+    };
 
-        switch(computerChoice){
-            case 'Paper':
-                document.getElementById('paperResultComputer').style.display = "flex";
-                break;
-            case 'Scissors':
-                document.getElementById('scissorsResultComputer').style.display = "flex";
-                break;
-            case 'Rock':
-                document.getElementById('rockResultComputer').style.display = "flex";
-                break;
-        }
-
-        switch(whoWon[0]){
-            case 'computer':
-                document.querySelector('.youLose').style.display = "block";
-                document.getElementById(`${whoWon[1]}ResultComputer`).classList.toggle("winnerBoxShadow");
-                break;
-            case "user":
-                document.querySelector('.youWin').style.display = "block";
-                document.getElementById(`${whoWon[1]}Result`).classList.toggle("winnerBoxShadow");
-        }
-
-        if(whoWon[0] === 'user'){
-            score += 1;
-            document.querySelector('.nbScore').innerHTML = score;
-        } else if(whoWon[0] === 'computer'){
-            score -= 1;
-            document.querySelector('.nbScore').innerHTML = score;
-        }
-    
+    // call updateScore whenever the score changes
+    if (whoWon[0] === 'user') {
+    updateScore(score + 1);
+    } else if (whoWon[0] === 'computer') {
+    updateScore(score - 1);
+    } 
     },2500);
     
 }
