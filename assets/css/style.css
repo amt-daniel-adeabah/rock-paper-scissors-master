@@ -492,9 +492,10 @@ body {
     }
 
     .noChoiceYet {
-        width: 6.5rem;
-        height: auto;
-        margin-top: 0;
+        background-color: rgba(12, 8, 8, 0.5);
+        border-radius: 50%;
+        width: 13rem;
+        height: 13rem;
     }
 
     /* result */
@@ -525,22 +526,15 @@ body {
         bottom: 8.5rem;
     }
 
-    .winnerBoxShadow {
-        box-shadow: 0px 1px 0px 20px rgba(124, 113, 146, 0.5),
-        0px 1px 0px 50px rgba(124, 113, 146, 0.3),
-        0px 1px 0px 80px rgba(124, 113, 146, 0.1);
-    }
-
-
     /* title and score */
     .titleAndScore {
         width: 80%;
-        padding: 1rem 1rem;
+        /* padding: 1rem 1rem; */
         border-radius: 0.5rem;
     }
 
     .titleLogo img {
-        height: 4rem;
+        height: 8rem;
     }
 
     .score {
