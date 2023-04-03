@@ -12,7 +12,7 @@ const rock = document.querySelector('.rockDiv');
 let score = localStorage.getItem('score') ? parseInt(localStorage.getItem('score')) : 0;
 
 // set the initial value of the score element
-document.querySelector('.nbScore').innerHTML = score;   
+document.querySelector('.totalScore').innerHTML = score;   
 
 
 let userChoice = "";
@@ -137,7 +137,7 @@ setTimeout(()=>{
     const updateScore = (newScore) => {
     score = newScore;
     localStorage.setItem('score', newScore);
-    document.querySelector('.nbScore').innerHTML = score;
+    document.querySelector('.totalScore').innerHTML = score;
     };
 
     // call updateScore whenever the score changes

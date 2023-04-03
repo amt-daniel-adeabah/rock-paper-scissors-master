@@ -66,7 +66,7 @@ body {
 }
 
 
-.nbScore {
+.totalScore {
     color: var(--darkText);
     font-size: 5rem;
     font-weight: 900;
@@ -515,6 +515,12 @@ body {
         text-align: center;
     }
 
+    .winnerBoxShadow {
+        box-shadow: 0px 1px 0px 40px rgba(124, 113, 146, 0.5),
+        0px 1px 0px 80px rgba(124, 113, 146, 0.3),
+        0px 1px 0px 120px rgba(124, 113, 146, 0.1);
+    }
+
     .playAgain {
         font-size: 1.3rem;
         padding: 1.2rem 3.7rem;
@@ -547,7 +553,7 @@ body {
         font-size: 1rem;
     }
     
-    .nbScore {
+    .totalScore {
         font-size: 2rem;
     }
 
