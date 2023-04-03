@@ -23,7 +23,12 @@ Users should be able to:
 
 ## Screenshot
 
-<img src="./design/desktop-preview.jpg" alt="Interface" width="100%" height="auto">
+<img src="./ui/ui1.png" alt="Interface" width="100%" height="auto">
+<img src="./ui/ui2.png" alt="Interface" width="100%" height="auto">
+<img src="./ui/ui3.png" alt="Interface" width="100%" height="auto">
+<img src="./ui/ui4.png" alt="Interface" width="100%" height="auto">
+<img src="./ui/ui5.png" alt="Interface" width="100%" height="auto">
+
 
 ### Rules
 
